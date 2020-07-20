@@ -9,27 +9,27 @@ namespace TcpForwarder
 	{
 		static void Main(string[] args)
 		{
-      ArgParse argparse = new ArgParse
-      (
-          new ArgItem("src-port", "sp", true, "Source Port", "7701", ArgParse.ArgParseType.Int),
-          new ArgItem("src-ip", "si", false, "Source Ip", "0.0.0.0", ArgParse.ArgParseType.String),
-          new ArgItem("dst-port", "dp", true, "password", "", ArgParse.ArgParseType.Int),
-          new ArgItem("dst-ip", "di", true, "destination ip", "", ArgParse.ArgParseType.String)
-      );
+			ArgParse argparse = new ArgParse
+			(
+				new ArgItem("src-port", "sp", true, "Source Port", "7701", ArgParse.ArgParseType.Int),
+				new ArgItem("src-ip", "si", false, "Source Ip", "0.0.0.0", ArgParse.ArgParseType.String),
+				new ArgItem("dst-port", "dp", true, "password", "", ArgParse.ArgParseType.Int),
+				new ArgItem("dst-ip", "di", true, "destination ip", "", ArgParse.ArgParseType.String)
+			);
 
-      argparse.parse(args);
+			argparse.parse(args);
 
-      int srcPort = argparse.Get<int>("src-port");
-      IPAddress srcIp = IPAddress.Parse(argparse.Get<string>("src-ip"));
+			int srcPort = argparse.Get<int>("src-port");
+			IPAddress srcIp = IPAddress.Parse(argparse.Get<string>("src-ip"));
 
-      int dstPort = argparse.Get<int>("dst-port");
-      IPAddress dstIp = IPAddress.Parse(argparse.Get<string>("dst-ip"));
+			int dstPort = argparse.Get<int>("dst-port");
+			IPAddress dstIp = IPAddress.Parse(argparse.Get<string>("dst-ip"));
 
-      SimpleTcpForwarder fwder = new SimpleTcpForwarder();
-      IPEndPoint sep = new IPEndPoint(srcIp, srcPort);
-      IPEndPoint dep = new IPEndPoint(dstIp, dstPort);
+			SimpleTcpForwarder fwder = new SimpleTcpForwarder();
+			IPEndPoint sep = new IPEndPoint(srcIp, srcPort);
+			IPEndPoint dep = new IPEndPoint(dstIp, dstPort);
 
-      fwder.Start(sep, dep);
+			fwder.Start(sep, dep);
 		}
   }
 }
