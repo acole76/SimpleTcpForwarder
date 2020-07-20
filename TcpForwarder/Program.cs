@@ -13,8 +13,8 @@ namespace TcpForwarder
 			(
 				new ArgItem("src-port", "sp", true, "Source Port", "7701", ArgParse.ArgParseType.Int),
 				new ArgItem("src-ip", "si", false, "Source Ip", "0.0.0.0", ArgParse.ArgParseType.String),
-				new ArgItem("dst-port", "dp", true, "password", "", ArgParse.ArgParseType.Int),
-				new ArgItem("dst-ip", "di", true, "destination ip", "", ArgParse.ArgParseType.String)
+				new ArgItem("dst-port", "dp", true, "Destination Port", "", ArgParse.ArgParseType.Int),
+				new ArgItem("dst-ip", "di", true, "Destination ip", "", ArgParse.ArgParseType.String)
 			);
 
 			argparse.parse(args);
